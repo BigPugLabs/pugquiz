@@ -19,14 +19,15 @@ function App() {
                 <h2>Some questions about</h2>
                 <span>{category}</span>
             </>;
-            default: setPhase(0)
+            default: {
+                setPhase(0);
+                return <></>;
+            }
         }
     }
 
     return (
-        <>
-            {getPage()}
-        </>
+        getPage()
     )
 }
 

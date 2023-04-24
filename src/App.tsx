@@ -24,7 +24,9 @@ function App() {
     }
 
     return (
-        getPage()
+        <>
+            {getPage()}
+        </>
     )
 }
 

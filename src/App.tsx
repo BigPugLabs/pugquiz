@@ -1,35 +1,31 @@
+import Categories from './components/Categories';
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [phase, setPhase] = useState(0)
+    const [category, setCategory] = useState("")
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const getPage = () => {
+        switch (phase) {
+            case 0: return <>
+                <h1>Pug Quiz</h1>
+                <span>Can you get more answers than a pug?</span>
+                <button onClick={() => setPhase(1)}>Start Quiz</button>
+            </>;
+            case 1: return <>
+                <Categories setPhase={setPhase} setCategory={setCategory} />
+            </>;
+            case 2: return <>
+                <h2>Some questions about</h2>
+                <span>{category}</span>
+            </>;
+            default: setPhase(0)
+        }
+    }
+
+    return (
+        getPage()
+    )
 }
 
 export default App

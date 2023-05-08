@@ -1,0 +1,9 @@
+body {
+    background: 100% 0% / 30% no-repeat url("assets/blob1.svg"),
+                0% 100% / 30% no-repeat url("assets/blob2.svg"),
+                #F5F7FB;
+    color: #293264;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+

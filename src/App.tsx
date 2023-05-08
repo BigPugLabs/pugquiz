@@ -1,4 +1,5 @@
 import Categories from './components/Categories';
+import StartQuiz from './components/StartQuiz';
 import { useState } from 'react'
 
 function App() {
@@ -8,9 +9,7 @@ function App() {
     const getPage = () => {
         switch (phase) {
             case 0: return <>
-                <h1>Pug Quiz</h1>
-                <span>Can you get more answers than a pug?</span>
-                <button onClick={() => setPhase(1)}>Start Quiz</button>
+                <StartQuiz setPhase={setPhase} />
             </>;
             case 1: return <>
                 <Categories setPhase={setPhase} setCategory={setCategory} />

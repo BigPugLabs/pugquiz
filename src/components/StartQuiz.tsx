@@ -2,10 +2,11 @@ import { useEffect, useState } from "react"
 
 type StartProps = {
     setPhase: React.Dispatch<React.SetStateAction<number>>;
+    setCurrentCat: React.Dispatch<React.SetStateAction<string>>;
 }
 
 interface CategoryObjects {
-    id: number,
+    id: string,
     name: string;
 }
 export default function StartQuiz(props: StartProps) {
@@ -16,7 +17,7 @@ export default function StartQuiz(props: StartProps) {
         const getter = async () => {
             const res = await fetch("https://opentdb.com/api_category.php")
             const json = await res.json()
-            setCatList([{ "id": 0, "name": "Any" }].concat(json.trivia_categories))
+            setCatList([{ "id": "0", "name": "Any" }].concat(json.trivia_categories))
         }
         getter()
     }, [])
@@ -33,7 +34,7 @@ export default function StartQuiz(props: StartProps) {
             {showSelect && catList.length &&
                 <>
                     <label htmlFor="catSelect">Choose a category</label>
-                    <select name="category" id="catSelect">
+                    <select name="category" id="catSelect" onChange={(e)=>props.setCurrentCat(e.target.value)} >
                         {catList.map(cat => <option key={cat.id} value={cat.id}>{cat.name}</option>)}
                     </select>
                 </>

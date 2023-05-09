@@ -27,9 +27,9 @@ export default function StartQuiz(props: StartProps) {
     }
 
     return (
-        <>
+        <div className="intro">
             <h1>Pug Quiz</h1>
-            <span>Can you get more answers than a pug?</span>
+            <p>Can you get more answers than a pug?</p>
             {showSelect && catList.length &&
                 <>
                     <label htmlFor="catSelect">Choose a category</label>
@@ -39,8 +39,8 @@ export default function StartQuiz(props: StartProps) {
                 </>
             }
             {!(showSelect && catList.length) &&
-                <button onClick={(e) => handleShowList(e.target as HTMLButtonElement)}>select cat</button >}
+                <button onClick={(e) => handleShowList(e.target as HTMLButtonElement)}>Select Category?</button >}
             <button onClick={() => props.setPhase(1)}>Start Quiz</button>
-        </>
+        </div>
     )
 }

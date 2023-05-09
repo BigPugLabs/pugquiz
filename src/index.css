@@ -5,5 +5,44 @@ body {
     color: #293264;
     font-family: 'Inter', sans-serif;
     min-height: 100vh;
+    margin: 0;
 }
 
+#root {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.intro {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 1rem;
+}
+
+h1 {
+    font: 700 2em 'Karla', sans-serif;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+.intro button {
+    background: #4D5B9E;
+    border: none;
+    border-radius: 15px;
+    color: #F5F7FB;
+    font: 500 1rem 'Inter', sans-serif;
+    height: 3.25rem;
+    width: 150px;
+}
+
+select {
+    color: #293264;
+    font-family: "Inter", sans-serif;
+}
